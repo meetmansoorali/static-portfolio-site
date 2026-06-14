@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mansoor Ali | Laravel Engineer</title>
+    <title>Mansoor Ali | Laravel & Systems Engineer</title>
     
     <!-- Premium Minimalist Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -318,12 +318,15 @@
             position: relative;
             max-width: 90%;
             max-height: 85%;
+            display: flex;
+            justify-content: center;
         }
 
         .modal-wrapper img {
             max-width: 100%;
             max-height: 80vh;
             border-radius: 4px;
+            object-fit: contain;
         }
 
         .modal-close {
@@ -361,6 +364,7 @@
         .social-row {
             display: flex;
             gap: 30px;
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -411,11 +415,11 @@
 </head>
 <body>
 
-    <!-- Lightbox Modal for Certificate Dynamic Display -->
-    <div class="modal-overlay" id="certModal">
+    <!-- Lightbox Modal for Dynamic Image Presentation -->
+    <div class="modal-overlay" id="portfolioModal">
         <div class="modal-wrapper">
             <button class="modal-close" id="closeModal">close [x]</button>
-            <img src="https://i.ibb.co/9HrvyNmf/Web-competition-participation.jpg" alt="Aptech Vision 25 Hackathon Certificate">
+            <img src="" id="modalTargetImg" alt="Credential Preview Image">
         </div>
     </div>
 
@@ -426,6 +430,7 @@
             <div class="nav-links">
                 <a href="#experience">Experience</a>
                 <a href="#architecture">Architecture</a>
+                <a href="#credentials">Credentials</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -434,9 +439,9 @@
         <header class="hero">
             <div class="hero-grid">
                 <div>
-                    <p class="tagline">Laravel Engineer</p>
+                    <p class="tagline">Laravel & Systems Engineer</p>
                     <h1>Engineering robust backends, business architectures, and e-commerce engines.</h1>
-                    <p class="sub-hero">2.5+ years of production experience designing performance-tuned web ecosystems and maintaining codebase lifecycles.</p>
+                    <p class="sub-hero">2.5+ years of production experience designing performance-tuned web ecosystems, handling backend API architectures, and maintaining clean codebase lifecycles.</p>
                     <div class="hero-cta">
                         <a href="#experience" class="primary-link">Track Record</a>
                         <a href="#architecture" class="secondary-link">System Architecture</a>
@@ -479,14 +484,14 @@
             <h2 class="section-title reveal">System Architecture</h2>
             <div class="grid">
                 
-                <!-- Aptech Card -->
+                <!-- Techwiz 6 Hackathon Card -->
                 <div class="card reveal">
                     <div>
-                        <h3>Aptech Vision 25</h3>
-                        <a href="#" class="card-subtitle" onclick="return false;">// Hackathon Standings</a>
-                        <p>Engineered an active web-tier script architecture under restricted sprint conditions. Highlighted deep MVC structuring and rapid server prototyping protocols.</p>
+                        <h3>Techwiz 6 Global Platform</h3>
+                        <a href="#" class="card-subtitle" data-cert="Web-competition-participation.jpg">// Global Standings View</a>
+                        <p>Engineered an active web-tier script application structure under intensive global competition constraints. Highlighted deep MVC structuring, system innovation paradigms, and rapid server prototyping protocols with 'The Code Crew'.</p>
                     </div>
-                    <button class="card-btn" id="openCertBtn">View Certificate</button>
+                    <button class="card-btn open-cert-trigger" data-img-url="Web-competition-participation.jpg">View Certificate</button>
                 </div>
 
                 <!-- Carryown Card with Logo Inside Header Row -->
@@ -504,6 +509,57 @@
                         </div>
                     </div>
                     <button class="card-btn" id="toggleInsightBtn">View Details</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Academic Credentials & Professional Certifications Section -->
+        <section id="credentials" class="section">
+            <h2 class="section-title reveal">Verified Credentials</h2>
+            <div class="grid">
+                
+                <!-- DISM Card -->
+                <div class="card reveal">
+                    <div>
+                        <h3>Diploma in Information Systems Management (DISM)</h3>
+                        <span class="card-subtitle">// Academic Core — Aptech</span>
+                        <p>Graduated with <strong>Distinction</strong>. Thorough validation in core MVC programming, distributed versions control setups, database query optimization, and technical project architectures.</p>
+                    </div>
+                    <div>
+                        <button class="card-btn open-cert-trigger" data-img-url="Web-Development-DISM.jpg" style="margin-right: 15px;">Diploma</button>
+                        <button class="card-btn open-cert-trigger" data-img-url="Performance-Statement-of-DISM-p-2.jpg">Transcripts</button>
+                    </div>
+                </div>
+
+                <!-- Digital Media Marketing Card -->
+                <div class="card reveal">
+                    <div>
+                        <h3>Digital Media Marketing with Freelancing</h3>
+                        <span class="card-subtitle">// Global Computer Institute</span>
+                        <p>Affiliated with Sindh Board of Technical Education. Awarded <strong>Grade A</strong> evaluation covering system optimization metrics, campaign architecture deployment, and digital growth systems management.</p>
+                    </div>
+                    <button class="card-btn open-cert-trigger" data-img-url="Digital-Media-Marketing.png">View Certification</button>
+                </div>
+
+                <!-- Seminar & Specialist Training Card -->
+                <div class="card reveal">
+                    <div>
+                        <h3>React & MongoDB Integration</h3>
+                        <span class="card-subtitle">// Aptech Learning Seminar</span>
+                        <p>Verified engagement in modern document store scaling protocols, asynchronous component lifecycles, and backend synchronization mechanics using REST environments.</p>
+                    </div>
+                    <button class="card-btn open-cert-trigger" data-img-url="Reat-Mongo-DB-Seminar.jpg">View Certificate</button>
+                </div>
+
+                <!-- CIT Card -->
+                <div class="card reveal">
+                    <div>
+                        <h3>Certificate in Information Technology (CIT)</h3>
+                        <span class="card-subtitle">// Social Development Organization</span>
+                        <p>Secured an <strong>A1+ Grade (93%)</strong>. Affiliated with Trade Testing Board, certifying foundational understanding of computing environments and core automation mechanics.</p>
+                    </div>
+                    <button class="card-btn open-cert-trigger" data-img-url="CIT.jpg">View Certificate</button>
                 </div>
 
             </div>
@@ -548,16 +604,37 @@
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
 
-            // Lightbox Overlay Handlers
-            const modal = document.getElementById('certModal');
-            const openBtn = document.getElementById('openCertBtn');
+            // Unified Immersive Lightbox Display Mechanic
+            const modal = document.getElementById('portfolioModal');
+            const modalImg = document.getElementById('modalTargetImg');
             const closeBtn = document.getElementById('closeModal');
+            const certButtons = document.querySelectorAll('.open-cert-trigger, [data-cert]');
 
-            openBtn.addEventListener('click', () => modal.classList.add('active'));
-            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-            modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+            certButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Extract image link from local attribute or data-cert asset reference
+                    const imgSrc = button.getAttribute('data-img-url') || button.getAttribute('data-cert');
+                    if(imgSrc) {
+                        modalImg.src = imgSrc;
+                        modal.classList.add('active');
+                    }
+                });
+            });
 
-            // Post-Mortem Dynamic Display
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                modalImg.src = "";
+            });
+            
+            modal.addEventListener('click', (e) => { 
+                if(e.target === modal) {
+                    modal.classList.remove('active');
+                    modalImg.src = "";
+                }
+            });
+
+            // Post-Mortem Dynamic Display (Carryown Card)
             const insightBlock = document.getElementById('carryownInsight');
             const toggleBtn = document.getElementById('toggleInsightBtn');
 
