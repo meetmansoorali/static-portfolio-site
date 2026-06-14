@@ -12,14 +12,16 @@
 
     <style>
         :root {
-            --bg: #0a0a0c;
-            --card-bg: #111115;
+            --bg: #060608;
+            --card-bg: #0b0b0f;
             --text: #f3f4f6;
             --text-muted: #8e939e;
             --accent: #ff2d20; /* Laravel Accent */
-            --border: #1f1f24;
+            --gold: #d4af37;  /* Gold Certification Tone */
+            --border: #14141a;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
+            --nav-height: 70px;
         }
 
         * {
@@ -38,26 +40,38 @@
         body {
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            padding-top: var(--nav-height);
         }
 
         .container {
             width: 90%;
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        /* Minimal Navigation */
+        /* Professional Sticky Navbar */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(6, 6, 8, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 0;
-            background: transparent;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
         }
 
         .logo {
@@ -66,14 +80,25 @@
             font-size: 0.95rem;
             color: var(--text);
             letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 25px;
             font-size: 0.85rem;
             font-family: var(--font-mono);
+            position: relative;
+            padding: 6px 0;
             transition: color 0.2s;
         }
 
@@ -81,10 +106,24 @@
             color: var(--text);
         }
 
+        .nav-links a.active {
+            color: var(--text);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+        }
+
         /* Hero Layout */
         .hero {
-            padding: 160px 0 80px 0;
-            min-height: 70vh;
+            padding: 100px 0 80px 0;
+            min-height: 60vh;
             display: flex;
             align-items: center;
         }
@@ -134,7 +173,6 @@
         .secondary-link { color: var(--text-muted); }
         .secondary-link:hover { color: var(--text); }
 
-        /* Minimal Profile Picture */
         .profile-frame {
             width: 100%;
             max-width: 260px;
@@ -207,7 +245,7 @@
             line-height: 1.6;
         }
 
-        /* Architectural Grid & Minimal Cards */
+        /* Engineering Project Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -215,13 +253,14 @@
         }
 
         .card {
-            background: transparent;
+            background: var(--card-bg);
             border: 1px solid var(--border);
             padding: 35px;
             border-radius: 6px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
         }
 
         .card h3 {
@@ -239,7 +278,6 @@
             margin-bottom: 18px;
         }
 
-        /* Inline Brand Header Layout */
         .brand-header-row {
             display: flex;
             justify-content: space-between;
@@ -261,7 +299,6 @@
             margin-bottom: 15px;
         }
 
-        /* Minimal Post-Mortem Business Block */
         .business-insight {
             border-top: 1px dashed var(--border);
             padding-top: 15px;
@@ -271,7 +308,6 @@
             line-height: 1.5;
         }
 
-        /* Utility System Buttons */
         .card-btn {
             align-self: flex-start;
             background: transparent;
@@ -283,24 +319,155 @@
             padding-bottom: 2px;
             cursor: pointer;
             margin-top: 15px;
-            transition: color 0.2s;
+            transition: color 0.2s, border-color 0.2s;
         }
 
         .card-btn:hover {
-            color: var(--text-muted);
-            border-color: var(--text-muted);
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
-        /* Immersive Modal Lightbox */
+        /* --- LANDSCAPE PREMIUM VIDEO ARCHITECTURE --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease;
+        }
+
+        .video-card:hover {
+            border-color: #23232f;
+        }
+
+        /* Widescreen 16:9 Thumbnail Mask */
+        .thumbnail-mask {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #040406;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thumbnail-mask img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .video-card:hover .thumbnail-mask img {
+            transform: scale(1.03);
+        }
+
+        /* Minimalist Hover Overlay Play Effect */
+        .thumbnail-mask::after {
+            content: 'VIEW CERTIFICATE';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 6, 8, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text);
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .video-card:hover .thumbnail-mask::after {
+            opacity: 1;
+        }
+
+        /* Upper Corner Badge Overlay */
+        .video-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(6, 6, 8, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 5px 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .gold-star {
+            color: var(--gold);
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Metadata & Context Shell */
+        .video-meta-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .video-channel-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .video-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            color: var(--text);
+            letter-spacing: -0.2px;
+        }
+
+        .video-description {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Immersive Lightbox Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(6, 6, 8, 0.95);
-            backdrop-filter: blur(4px);
-            z-index: 1000;
+            background: rgba(4, 4, 6, 0.96);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -327,6 +494,7 @@
             max-height: 80vh;
             border-radius: 4px;
             object-fit: contain;
+            border: 1px solid var(--border);
         }
 
         .modal-close {
@@ -341,7 +509,11 @@
             cursor: pointer;
         }
 
-        /* Minimal Footer Contact Linkage */
+        .modal-close:hover {
+            color: var(--text);
+        }
+
+        /* Contact & Footer Configuration */
         .contact-content {
             padding: 60px 0;
             text-align: left;
@@ -383,14 +555,13 @@
         footer {
             padding: 40px 0;
             border-top: 1px solid var(--border);
-            color: #44444f;
+            color: #383842;
             font-size: 0.8rem;
             font-family: var(--font-mono);
             display: flex;
             justify-content: space-between;
         }
 
-        /* Scroll Effects */
         .reveal {
             opacity: 0;
             transform: translateY(20px);
@@ -402,7 +573,11 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* Responsive Optimization rules */
+        @media (max-width: 880px) {
+            .video-grid { grid-template-columns: 1fr; gap: 35px; }
+        }
+
         @media (max-width: 768px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
             .profile-frame { justify-self: start; max-width: 180px; }
@@ -415,26 +590,29 @@
 </head>
 <body>
 
-    <!-- Lightbox Modal for Dynamic Image Presentation -->
+    <!-- Lightbox Modal for Dynamic Fullscreen Rendering -->
     <div class="modal-overlay" id="portfolioModal">
         <div class="modal-wrapper">
             <button class="modal-close" id="closeModal">close [x]</button>
-            <img src="" id="modalTargetImg" alt="Credential Preview Image">
+            <img src="" id="modalTargetImg" alt="Credential Premium Viewport Asset">
         </div>
     </div>
 
-    <div class="container">
-        <!-- Navigation Header -->
-        <nav>
-            <div class="logo">mansoor_ali</div>
-            <div class="nav-links">
-                <a href="#experience">Experience</a>
-                <a href="#architecture">Architecture</a>
-                <a href="#credentials">Credentials</a>
-                <a href="#contact">Contact</a>
+    <!-- Sticky Modern Navbar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">mansoor_ali<span>.</span></a>
+            <div class="nav-links" id="navbarNav">
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#architecture" class="nav-item">Systems</a>
+                <a href="#credentials" class="nav-item">Credentials</a>
+                <a href="#contact" class="nav-item">Contact</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
+    <div class="container">
+        
         <!-- Hero Introduction Section -->
         <header class="hero">
             <div class="hero-grid">
@@ -488,10 +666,10 @@
                 <div class="card reveal">
                     <div>
                         <h3>Techwiz 6 Global Platform</h3>
-                        <a href="#" class="card-subtitle" data-cert="Web-competition-participation.jpg">// Global Standings View</a>
+                        <a href="#" class="card-subtitle" onclick="return false;">// Global Standings</a>
                         <p>Engineered an active web-tier script application structure under intensive global competition constraints. Highlighted deep MVC structuring, system innovation paradigms, and rapid server prototyping protocols with 'The Code Crew'.</p>
                     </div>
-                    <button class="card-btn open-cert-trigger" data-img-url="Web-competition-participation.jpg">View Certificate</button>
+                    <button class="card-btn open-cert-trigger" data-img-url="/Web-competition-participation.jpg">View Certificate</button>
                 </div>
 
                 <!-- Carryown Card with Logo Inside Header Row -->
@@ -514,52 +692,162 @@
             </div>
         </section>
 
-        <!-- Academic Credentials & Professional Certifications Section -->
+        <!-- Professional Landscape Video-Style Credentials Grid -->
         <section id="credentials" class="section">
             <h2 class="section-title reveal">Verified Credentials</h2>
-            <div class="grid">
+            
+            <div class="video-grid reveal">
                 
-                <!-- DISM Card -->
-                <div class="card reveal">
-                    <div>
-                        <h3>Diploma in Information Systems Management (DISM)</h3>
-                        <span class="card-subtitle">// Academic Core — Aptech</span>
-                        <p>Graduated with <strong>Distinction</strong>. Thorough validation in core MVC programming, distributed versions control setups, database query optimization, and technical project architectures.</p>
+                <!-- Node 1: DISM -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Distinction</span>
+                        </div>
+                        <img src="/Web-Development-DISM.jpg" alt="DISM Certificate Thumbnail">
                     </div>
-                    <div>
-                        <button class="card-btn open-cert-trigger" data-img-url="Web-Development-DISM.jpg" style="margin-right: 15px;">Diploma</button>
-                        <button class="card-btn open-cert-trigger" data-img-url="Performance-Statement-of-DISM-p-2.jpg">Transcripts</button>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">Aptech Computer Education • Academic Diploma Core</span>
+                            <h3 class="video-title">Diploma in Information Systems Management</h3>
+                            <p class="video-description">Thorough verification in high-availability systems architectures, distributed database logic, relational design systems, and specialized backend architecture paradigms.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">View Fullscreen</button>
                     </div>
                 </div>
 
-                <!-- Digital Media Marketing Card -->
-                <div class="card reveal">
-                    <div>
-                        <h3>Digital Media Marketing with Freelancing</h3>
-                        <span class="card-subtitle">// Global Computer Institute</span>
-                        <p>Affiliated with Sindh Board of Technical Education. Awarded <strong>Grade A</strong> evaluation covering system optimization metrics, campaign architecture deployment, and digital growth systems management.</p>
+                <!-- Node 2: DISM Transcript 1 -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-1.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Verified Grade</span>
+                        </div>
+                        <img src="/Performance-Statement-of-DISM-p-1.jpg" alt="Transcript P1 Thumbnail">
                     </div>
-                    <button class="card-btn open-cert-trigger" data-img-url="Digital-Media-Marketing.png">View Certification</button>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
+                            <h3 class="video-title">DISM Performance Statement (Semester 1)</h3>
+                            <p class="video-description">Official academic ledger validating advanced distinction scoring profiles throughout software design, data frameworks, and responsive deployment testing metrics.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-1.jpg">View Fullscreen</button>
+                    </div>
                 </div>
 
-                <!-- Seminar & Specialist Training Card -->
-                <div class="card reveal">
-                    <div>
-                        <h3>React & MongoDB Integration</h3>
-                        <span class="card-subtitle">// Aptech Learning Seminar</span>
-                        <p>Verified engagement in modern document store scaling protocols, asynchronous component lifecycles, and backend synchronization mechanics using REST environments.</p>
+                <!-- Node 3: DISM Transcript 2 -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-2.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Verified Grade</span>
+                        </div>
+                        <img src="/Performance-Statement-of-DISM-p-2.jpg" alt="Transcript P2 Thumbnail">
                     </div>
-                    <button class="card-btn open-cert-trigger" data-img-url="Reat-Mongo-DB-Seminar.jpg">View Certificate</button>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
+                            <h3 class="video-title">DISM Performance Statement (Semester 2)</h3>
+                            <p class="video-description">Official verification documentation ledger metrics highlighting programming frameworks, dynamic database manipulation structures, and distributed version control systems.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-2.jpg">View Fullscreen</button>
+                    </div>
                 </div>
 
-                <!-- CIT Card -->
-                <div class="card reveal">
-                    <div>
-                        <h3>Certificate in Information Technology (CIT)</h3>
-                        <span class="card-subtitle">// Social Development Organization</span>
-                        <p>Secured an <strong>A1+ Grade (93%)</strong>. Affiliated with Trade Testing Board, certifying foundational understanding of computing environments and core automation mechanics.</p>
+                <!-- Node 4: Techwiz 6 -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-competition-participation.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Global Tier</span>
+                        </div>
+                        <img src="/Web-competition-participation.jpg" alt="Techwiz Competition Thumbnail">
                     </div>
-                    <button class="card-btn open-cert-trigger" data-img-url="CIT.jpg">View Certificate</button>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">Techwiz 6 Innovation Arena • Global Standing Deployment</span>
+                            <h3 class="video-title">Global Web Competition Engagement Certificate</h3>
+                            <p class="video-description">Certified tracking and development handling international design sprints. Validating architectural stability, rapid microservice deployment schedules, and structural layouts.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Web-competition-participation.jpg">View Fullscreen</button>
+                    </div>
+                </div>
+
+                <!-- Node 5: React & MongoDB -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Specialist</span>
+                        </div>
+                        <img src="/Reat-Mongo-DB-Seminar.jpg" alt="React & MongoDB Seminar Thumbnail">
+                    </div>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">Technical Specialist Seminar • Specialized Ecosystem</span>
+                            <h3 class="video-title">React & MongoDB Stack Integration</h3>
+                            <p class="video-description">Documenting modern asynchronous full-stack development, distributed query architectures, NoSQL horizontal structural sharding, and real-time interface engine configurations.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">View Fullscreen</button>
+                    </div>
+                </div>
+
+                <!-- Node 6: Research Capability -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Research-capability.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Appreciation</span>
+                        </div>
+                        <img src="/Research-capability.jpg" alt="Research Capability Thumbnail">
+                    </div>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">Technical Capability Analytics • Advanced Processes</span>
+                            <h3 class="video-title">Writing, Tasks, & Research Performance</h3>
+                            <p class="video-description">Outstanding engineering performance verification evaluating critical systems research logic, structured documentation practices, and execution processes.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Research-capability.jpg">View Fullscreen</button>
+                    </div>
+                </div>
+
+                <!-- Node 7: Digital Media Marketing -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">Grade A</span>
+                        </div>
+                        <img src="/Digital-Media-Marketing.png" alt="Marketing Diploma Thumbnail">
+                    </div>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">Global Computer Institute • SBTE Affiliation</span>
+                            <h3 class="video-title">Digital Media Marketing & Freelancing</h3>
+                            <p class="video-description">Affiliated with Sindh Board of Technical Education. Comprehensive mastery of customer conversion matrices, data flow funnels, optimization diagnostics, and growth analytics.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">View Fullscreen</button>
+                    </div>
+                </div>
+
+                <!-- Node 8: CIT -->
+                <div class="video-card">
+                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/CIT.jpg">
+                        <div class="video-badge">
+                            <span class="gold-star">★</span>
+                            <span class="badge-text">93% Secure</span>
+                        </div>
+                        <img src="/CIT.jpg" alt="CIT Certificate Thumbnail">
+                    </div>
+                    <div class="video-meta-body">
+                        <div>
+                            <span class="video-channel-tag">Social Development Org • Trade Testing Board</span>
+                            <h3 class="video-title">Certificate in Information Technology (CIT)</h3>
+                            <p class="video-description">Secured A1+ honors verification tracking advanced algorithms, structural office automation scripting, optimization tools, and local networking deployments.</p>
+                        </div>
+                        <button class="card-btn open-cert-trigger" data-img-url="/CIT.jpg">View Fullscreen</button>
+                    </div>
                 </div>
 
             </div>
@@ -590,7 +878,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // Scroll Reveal Interaction
+            // --- SCROLL REVEAL MECHANIC ---
             const revealElements = document.querySelectorAll('.reveal');
             const revealOnScroll = () => {
                 for (let i = 0; i < revealElements.length; i++) {
@@ -604,17 +892,39 @@
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
 
-            // Unified Immersive Lightbox Display Mechanic
+            // --- PROFESSIONAL NAVBAR HIGHLIGHT LOGIC ---
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('section');
+            
+            const activeNavOnScroll = () => {
+                let scrollPosition = window.scrollY + 150;
+                sections.forEach(section => {
+                    if (scrollPosition >= section.offsetTop && scrollPosition < (section.offsetTop + section.offsetHeight)) {
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === `#${section.id}`) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+                if(window.scrollY < 200) {
+                    navItems.forEach(item => item.classList.remove('active'));
+                }
+            };
+            window.addEventListener('scroll', activeNavOnScroll);
+
+            // --- UNIFIED LIGHTBOX DISPLAY MECHANIC ---
             const modal = document.getElementById('portfolioModal');
             const modalImg = document.getElementById('modalTargetImg');
             const closeBtn = document.getElementById('closeModal');
-            const certButtons = document.querySelectorAll('.open-cert-trigger, [data-cert]');
+            const certButtons = document.querySelectorAll('.open-cert-trigger');
 
             certButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
-                    // Extract image link from local attribute or data-cert asset reference
-                    const imgSrc = button.getAttribute('data-img-url') || button.getAttribute('data-cert');
+                    e.stopPropagation();
+                    const imgSrc = button.getAttribute('data-img-url');
                     if(imgSrc) {
                         modalImg.src = imgSrc;
                         modal.classList.add('active');
@@ -622,19 +932,15 @@
                 });
             });
 
-            closeBtn.addEventListener('click', () => {
+            const clearAndCloseModal = () => {
                 modal.classList.remove('active');
                 modalImg.src = "";
-            });
-            
-            modal.addEventListener('click', (e) => { 
-                if(e.target === modal) {
-                    modal.classList.remove('active');
-                    modalImg.src = "";
-                }
-            });
+            };
 
-            // Post-Mortem Dynamic Display (Carryown Card)
+            closeBtn.addEventListener('click', clearAndCloseModal);
+            modal.addEventListener('click', (e) => { if(e.target === modal) clearAndCloseModal(); });
+
+            // --- BUSINESS POST-MORTEM TOGGLE (CARRYOWN) ---
             const insightBlock = document.getElementById('carryownInsight');
             const toggleBtn = document.getElementById('toggleInsightBtn');
 
