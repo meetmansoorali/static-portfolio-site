@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mansoor Ali | Laravel & Systems Engineer</title>
-    
+
     <!-- Premium Minimalist Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Kit CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         :root {
-            --bg: #060608;
-            --card-bg: #0b0b0f;
+            --bg: #050507;
+            --card-bg: #0a0a0f;
             --text: #f3f4f6;
             --text-muted: #8e939e;
-            --accent: #ff2d20; /* Laravel Accent */
-            --gold: #d4af37;  /* Gold Certification Tone */
-            --border: #14141a;
+            --accent: #ff2d20;
+            /* Laravel Accent */
+            --gold: #d4af37;
+            /* Gold Certification Tone */
+            --border: #14141c;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --nav-height: 70px;
+            --nav-height: 75px;
         }
 
         * {
@@ -56,9 +66,9 @@
             left: 0;
             width: 100%;
             height: var(--nav-height);
-            background: rgba(6, 6, 8, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(5, 5, 7, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             display: flex;
@@ -87,6 +97,12 @@
             color: var(--accent);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
@@ -102,14 +118,11 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
+        .nav-links a:hover,
         .nav-links a.active {
             color: var(--text);
         }
-        
+
         .nav-links a.active::after {
             content: '';
             position: absolute;
@@ -120,17 +133,38 @@
             background: var(--accent);
         }
 
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-left: 1px solid var(--border);
+            padding-left: 24px;
+        }
+
+        .nav-socials a {
+            color: var(--text-muted);
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        .nav-socials a:hover {
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
         /* Hero Layout */
         .hero {
-            padding: 100px 0 80px 0;
-            min-height: 60vh;
+            padding: 120px 0 90px 0;
+            min-height: 65vh;
             display: flex;
             align-items: center;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
+            grid-template-columns: 0.7fr 1.3fr;
             gap: 60px;
             align-items: center;
         }
@@ -145,8 +179,8 @@
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.25;
+            font-size: 3rem;
+            line-height: 1.2;
             font-weight: 500;
             margin-bottom: 20px;
             letter-spacing: -1px;
@@ -160,37 +194,76 @@
             line-height: 1.6;
         }
 
-        .hero-cta a {
-            text-decoration: none;
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            margin-right: 25px;
-            transition: color 0.2s ease;
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
-        .primary-link { color: var(--text); border-bottom: 1px solid var(--text); padding-bottom: 2px; }
-        .secondary-link { color: var(--text-muted); }
-        .secondary-link:hover { color: var(--text); }
+        .hero-cta a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .primary-link {
+            color: var(--text);
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+        }
+
+        .primary-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .secondary-link {
+            color: var(--text-muted);
+        }
+
+        .secondary-link:hover {
+            color: var(--text);
+        }
+
+        /* Premium Resume Action Button Grid Style */
+        .resume-btn {
+            background: transparent;
+            border: 1px solid var(--text);
+            color: var(--text);
+            padding: 8px 18px;
+            border-radius: 4px;
+        }
+
+        .resume-btn:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
 
         .profile-frame {
             width: 100%;
-            max-width: 260px;
+            max-width: 300px;
             justify-self: end;
         }
 
         .profile-img {
             width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 6px;
             filter: grayscale(100%);
-            opacity: 0.8;
-            transition: all 0.3s ease;
+            opacity: 0.75;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
         }
 
         .profile-frame:hover .profile-img {
             filter: grayscale(0%);
             opacity: 1;
+            border-color: rgba(255, 45, 32, 0.3);
         }
 
         /* Clean Sections */
@@ -225,18 +298,22 @@
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-muted);
+            padding-top: 4px;
+            padding-bottom: 10px;
         }
 
         .time-content h3 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            color: var(--text);
         }
 
         .location {
             color: var(--text-muted);
             font-size: 0.85rem;
             margin-bottom: 15px;
+            font-family: var(--font-mono);
         }
 
         .time-content p {
@@ -256,15 +333,20 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             padding: 35px;
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #1c1c26;
         }
 
         .card h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 500;
             margin-bottom: 4px;
         }
@@ -274,28 +356,30 @@
             font-size: 0.8rem;
             color: var(--accent);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             margin-bottom: 18px;
         }
 
         .brand-header-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 10px;
         }
 
         .brand-logo-img {
-            height: 24px;
+            height: 22px;
             width: auto;
             border-radius: 2px;
-            opacity: 0.9;
+            opacity: 0.85;
         }
 
         .card p {
             color: var(--text-muted);
             line-height: 1.6;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             margin-bottom: 15px;
         }
 
@@ -319,6 +403,9 @@
             padding-bottom: 2px;
             cursor: pointer;
             margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             transition: color 0.2s, border-color 0.2s;
         }
 
@@ -327,11 +414,19 @@
             border-color: var(--accent);
         }
 
-        /* --- LANDSCAPE PREMIUM VIDEO ARCHITECTURE --- */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+        /* --- AUTOMATED LANDSCAPE VIDEO CAROUSEL --- */
+        .carousel-viewport {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
         }
 
         .video-card {
@@ -342,10 +437,11 @@
             display: flex;
             flex-direction: column;
             transition: border-color 0.3s ease;
+            flex: 0 0 calc((100% - 30px) / 2);
         }
 
         .video-card:hover {
-            border-color: #23232f;
+            border-color: #232335;
         }
 
         /* Widescreen 16:9 Thumbnail Mask */
@@ -366,18 +462,18 @@
         }
 
         .video-card:hover .thumbnail-mask img {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
         /* Minimalist Hover Overlay Play Effect */
         .thumbnail-mask::after {
-            content: 'VIEW CERTIFICATE';
+            content: 'EXPAND CREDENTIAL';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(6, 6, 8, 0.6);
+            background: rgba(5, 5, 7, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -399,10 +495,10 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            background: rgba(6, 6, 8, 0.85);
+            background: rgba(5, 5, 7, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 5px 12px;
             border-radius: 4px;
             display: flex;
@@ -465,8 +561,8 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(4, 4, 6, 0.96);
-            backdrop-filter: blur(8px);
+            background: rgba(4, 4, 6, 0.97);
+            backdrop-filter: blur(12px);
             z-index: 2000;
             display: flex;
             justify-content: center;
@@ -515,47 +611,54 @@
 
         /* Contact & Footer Configuration */
         .contact-content {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: left;
         }
 
         .contact-content h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 500;
             margin-bottom: 15px;
         }
 
         .contact-content p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            max-width: 500px;
+            font-size: 1rem;
+            margin-bottom: 35px;
+            max-width: 520px;
             line-height: 1.6;
         }
 
         .social-row {
             display: flex;
-            gap: 30px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
-        .social-link {
-            font-family: var(--font-mono);
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 6px;
             color: var(--text);
             text-decoration: none;
+            font-family: var(--font-mono);
             font-size: 0.85rem;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, background-color 0.2s;
         }
 
-        .social-link:hover {
-            border-color: var(--text);
+        .social-button:hover {
+            border-color: #232335;
+            background: #111118;
         }
 
         footer {
             padding: 40px 0;
             border-top: 1px solid var(--border);
-            color: #383842;
+            color: #404050;
             font-size: 0.8rem;
             font-family: var(--font-mono);
             display: flex;
@@ -564,7 +667,7 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(15px);
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -575,19 +678,131 @@
 
         /* Responsive Optimization rules */
         @media (max-width: 880px) {
-            .video-grid { grid-template-columns: 1fr; gap: 35px; }
+            .nav-socials {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .profile-frame { justify-self: start; max-width: 180px; }
-            .hero h1 { font-size: 2.2rem; }
-            .timeline-item { grid-template-columns: 1fr; gap: 10px; }
-            .grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 10px; }
+            .video-card {
+                flex: 0 0 100%;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .profile-frame {
+                justify-self: start;
+                max-width: 180px;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-right {
+                gap: 0;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* Structural Timeline Layout & Vertical Connectors */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 30px;
+            position: relative;
+        }
+
+        .date-container {
+            position: relative;
+            padding-top: 4px;
+        }
+
+        .date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: inline-block;
+        }
+
+        /* Company Logos in Timeline */
+        .timeline-brand-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .time-content {
+            flex-grow: 1;
+        }
+
+        .timeline-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .timeline-logo img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .timeline-logo i {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .timeline-brand-wrapper {
+                flex-direction: column-reverse;
+                gap: 15px;
+            }
+
+            /* Hide the graphic branch on mobile screens to maintain clean spacing */
+            .timeline-branch {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Lightbox Modal for Dynamic Fullscreen Rendering -->
@@ -601,33 +816,55 @@
     <!-- Sticky Modern Navbar -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">mansoor_ali<span>.</span></a>
-            <div class="nav-links" id="navbarNav">
-                <a href="#experience" class="nav-item">Experience</a>
-                <a href="#architecture" class="nav-item">Systems</a>
-                <a href="#credentials" class="nav-item">Credentials</a>
-                <a href="#contact" class="nav-item">Contact</a>
+            <a href="#" class="logo">
+                 <img src="https://i.ibb.co/C3yBJr44/686273210-18046292702758194-1277828958504920591-n-1.jpg"
+                    class="brand-logo-img">
+                    
+                Mansoor<span>Ali</span></a>
+            <div class="nav-right">
+                <div class="nav-links" id="navbarNav">
+                    <a href="#experience" class="nav-item">Experience</a>
+                    <a href="#architecture" class="nav-item">Systems</a>
+                    <a href="#credentials" class="nav-item">Credentials</a>
+                    <a href="#contact" class="nav-item">Contact</a>
+                </div>
+                <div class="nav-socials">
+                    <a href="https://github.com/meetmansoorali" style="text-decoration: none;" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/meetmansoorali/?skipRedirect=true" target="_blank"
+                        style="text-decoration: none;">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        
+
         <!-- Hero Introduction Section -->
         <header class="hero">
             <div class="hero-grid">
+                <div class="profile-frame">
+                    <img src="https://i.ibb.co/C3yBJr44/686273210-18046292702758194-1277828958504920591-n-1.jpg"
+                        alt="Mansoor Ali Profile" class="profile-img">
+                </div>
                 <div>
-                    <p class="tagline">Laravel & Systems Engineer</p>
-                    <h1>Engineering robust backends, business architectures, and e-commerce engines.</h1>
-                    <p class="sub-hero">2.5+ years of production experience designing performance-tuned web ecosystems, handling backend API architectures, and maintaining clean codebase lifecycles.</p>
+                    <p class="tagline">Laravel & Systems Developer</p>
+                    <h1>Developing robust Web Apps, business solutions, and E-COM Webs.</h1>
+                    <p class="sub-hero">2.5+ years of production experience designing performance-tuned web ecosystems,
+                        handling backend API architectures, and maintaining clean codebase lifecycles.</p>
                     <div class="hero-cta">
-                        <a href="#experience" class="primary-link">Track Record</a>
-                        <a href="#architecture" class="secondary-link">System Architecture</a>
+                        <a href="#experience" class="primary-link">Experience</a>
+                        <a href="#architecture" class="secondary-link">Milestones</a>
+                        <!-- New Resume Action Link Element -->
+                        <a href="/path-to-your-resume.pdf" download class="resume-btn">
+                            <i class="fa-solid fa-arrow-down-to-bracket"></i> Download CV
+                        </a>
                     </div>
                 </div>
-                <div class="profile-frame">
-                    <img src="https://i.ibb.co/C3yBJr44/686273210-18046292702758194-1277828958504920591-n-1.jpg" alt="Mansoor Ali Profile" class="profile-img">
-                </div>
+
             </div>
         </header>
 
@@ -635,22 +872,47 @@
         <section id="experience" class="section">
             <h2 class="section-title reveal">Track Record</h2>
             <div class="timeline">
-                
+
+                <!-- Freelance Work -->
                 <div class="timeline-item reveal">
-                    <span class="date">2025 — PRESENT</span>
-                    <div class="time-content">
-                        <h3>System Programmer / Freelance Engineer</h3>
-                        <p class="location">Remote Operations</p>
-                        <p>Architecting production-ready APIs and back-end integration mechanics utilizing structural PHP layouts and the Laravel ecosystem. Normalizing relational databases and tuning complex system interactions for streamlined processing pipelines.</p>
+                    <div class="date-container">
+                        <span class="date">2025 — PRESENT</span>
+                        <div class="timeline-logo" title="Freelance Engineering Contracts">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-brand-wrapper">
+                        <div class="time-content">
+                            <h3>System Programmer / Freelance Engineer</h3>
+                            <p class="location">Remote Operations</p>
+                            <p>Architecting production-ready APIs and back-end integration mechanics utilizing
+                                structural PHP layouts and the Laravel ecosystem. Normalizing relational databases and
+                                tuning complex system interactions for streamlined processing pipelines.</p>
+                        </div>
+                        <!-- Premium Professional Hub Placeholder -->
+
                     </div>
                 </div>
 
+                <!-- Lead PHP Developer at Carryown -->
                 <div class="timeline-item reveal">
-                    <span class="date">2024 — 2025</span>
-                    <div class="time-content">
-                        <h3>Lead PHP Developer</h3>
-                        <p class="location">Carryown — Premium Bag Brand</p>
-                        <p>Designed and managed the end-to-end e-commerce data structures. Oversaw integration points handling localized payment routing configurations, structural inventory logs, and critical user transactional pipelines.</p>
+                    <div class="date-container">
+                        <span class="date">2024 — 2025</span>
+                        <!-- Verified Brand Logo Asset -->
+                        <div class="timeline-logo">
+                            <img src="https://i.ibb.co/QjHxwS02/carryown-com.jpg" alt="Carryown Brand Logo">
+                        </div>
+                    </div>
+                    <div class="timeline-brand-wrapper">
+
+                        <div class="time-content">
+                            <h3>Lead PHP Developer</h3>
+                            <p class="location">Carryown — Premium Bag Brand</p>
+                            <p>Designed and managed the end-to-end e-commerce data structures. Oversaw integration
+                                points handling localized payment routing configurations, structural inventory logs, and
+                                critical user transactional pipelines.</p>
+                        </div>
+
                     </div>
                 </div>
 
@@ -659,31 +921,44 @@
 
         <!-- Architecture & Project Grid -->
         <section id="architecture" class="section">
-            <h2 class="section-title reveal">System Architecture</h2>
+            <h2 class="section-title reveal">Milestones</h2>
             <div class="grid">
-                
-                <!-- Techwiz 6 Hackathon Card -->
+
                 <div class="card reveal">
                     <div>
-                        <h3>Techwiz 6 Global Platform</h3>
-                        <a href="#" class="card-subtitle" onclick="return false;">// Global Standings</a>
-                        <p>Engineered an active web-tier script application structure under intensive global competition constraints. Highlighted deep MVC structuring, system innovation paradigms, and rapid server prototyping protocols with 'The Code Crew'.</p>
+                        <div class="brand-header-row">
+                            <h3>Global Hackathon - Techwiz</h3>
+                            <img src="https://aptech-education.com.pk/assets/images/logo.png" class="brand-logo-img">
+                        </div>
+                        <p>Engineered an active web-tier script application structure under intensive global competition
+                            constraints. Highlighted deep MVC structuring, system innovation paradigms, and rapid server
+                            prototyping protocols with 'The Code Crew'.</p>
                     </div>
-                    <button class="card-btn open-cert-trigger" data-img-url="/Web-competition-participation.jpg">View Certificate</button>
+                    <button class="card-btn open-cert-trigger" data-img-url="/Web-competition-participation.jpg">
+                        View Certificate
+                    </button>
                 </div>
 
                 <!-- Carryown Card with Logo Inside Header Row -->
                 <div class="card reveal">
                     <div>
                         <div class="brand-header-row">
-                            <h3>Carryown Core</h3>
-                            <img src="https://i.ibb.co/QjHxwS02/carryown-com.jpg" alt="Carryown Brand Logo" class="brand-logo-img">
+                            <h3>Head of Technology - Carryown </h3>
+                            <img src="https://i.ibb.co/QjHxwS02/carryown-com.jpg" alt="Carryown Brand Logo"
+                                class="brand-logo-img">
                         </div>
-                        <a href="https://www.carryown.com" target="_blank" class="card-subtitle">www.carryown.com ↗</a>
-                        <p>Configured an e-commerce platform back-end built to manage multidimensional product variants and strict state checkouts for a direct-to-consumer bag brand.</p>
-                        
+                        <a href="https://www.carryown.com" target="_blank" class="card-subtitle">
+                            www.carryown.com
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <p>Configured an e-commerce platform back-end built to manage multidimensional product variants
+                            and strict state checkouts for a direct-to-consumer bag brand.</p>
+
                         <div class="business-insight" id="carryownInsight" style="display: none;">
-                            <strong>Post-Mortem:</strong> Core system structures functioned perfectly. Software architecture operations were sunsetted due to downstream business friction, including domestic logistics fulfillment bottlenecks and consistent third-party raw product pipeline challenges.
+                            <strong>Post-Mortem:</strong> Core system structures functioned perfectly. Software
+                            architecture operations were sunsetted due to downstream business friction, including
+                            domestic logistics fulfillment bottlenecks and consistent third-party raw product pipeline
+                            challenges.
                         </div>
                     </div>
                     <button class="card-btn" id="toggleInsightBtn">View Details</button>
@@ -692,164 +967,194 @@
             </div>
         </section>
 
-        <!-- Professional Landscape Video-Style Credentials Grid -->
+        <!-- Dynamic 2-Card Row Auto-Sliding Widescreen Slider -->
         <section id="credentials" class="section">
             <h2 class="section-title reveal">Verified Credentials</h2>
-            
-            <div class="video-grid reveal">
-                
-                <!-- Node 1: DISM -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Distinction</span>
-                        </div>
-                        <img src="/Web-Development-DISM.jpg" alt="DISM Certificate Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">Aptech Computer Education • Academic Diploma Core</span>
-                            <h3 class="video-title">Diploma in Information Systems Management</h3>
-                            <p class="video-description">Thorough verification in high-availability systems architectures, distributed database logic, relational design systems, and specialized backend architecture paradigms.</p>
-                        </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">View Fullscreen</button>
-                    </div>
-                </div>
 
-                <!-- Node 2: DISM Transcript 1 -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-1.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Verified Grade</span>
-                        </div>
-                        <img src="/Performance-Statement-of-DISM-p-1.jpg" alt="Transcript P1 Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
-                            <h3 class="video-title">DISM Performance Statement (Semester 1)</h3>
-                            <p class="video-description">Official academic ledger validating advanced distinction scoring profiles throughout software design, data frameworks, and responsive deployment testing metrics.</p>
-                        </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-1.jpg">View Fullscreen</button>
-                    </div>
-                </div>
+            <div class="carousel-viewport reveal" id="carouselViewport">
+                <div class="carousel-track" id="carouselTrack">
 
-                <!-- Node 3: DISM Transcript 2 -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-2.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Verified Grade</span>
+                    <!-- Node 1: DISM -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Distinction</span>
+                            </div>
+                            <img src="/Web-Development-DISM.jpg" alt="DISM Certificate Thumbnail">
                         </div>
-                        <img src="/Performance-Statement-of-DISM-p-2.jpg" alt="Transcript P2 Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
-                            <h3 class="video-title">DISM Performance Statement (Semester 2)</h3>
-                            <p class="video-description">Official verification documentation ledger metrics highlighting programming frameworks, dynamic database manipulation structures, and distributed version control systems.</p>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">Aptech Computer Education • Academic Diploma Core</span>
+                                <h3 class="video-title">Diploma in Information Systems Management</h3>
+                                <p class="video-description">Thorough verification in high-availability systems
+                                    architectures, distributed database logic, relational design systems, and
+                                    specialized backend architecture paradigms.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">View
+                                Fullscreen</button>
                         </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Performance-Statement-of-DISM-p-2.jpg">View Fullscreen</button>
                     </div>
-                </div>
 
-                <!-- Node 4: Techwiz 6 -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-competition-participation.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Global Tier</span>
+                    <!-- Node 2: DISM Transcript 1 -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger"
+                            data-img-url="/Performance-Statement-of-DISM-p-1.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Verified Grade</span>
+                            </div>
+                            <img src="/Performance-Statement-of-DISM-p-1.jpg" alt="Transcript P1 Thumbnail">
                         </div>
-                        <img src="/Web-competition-participation.jpg" alt="Techwiz Competition Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">Techwiz 6 Innovation Arena • Global Standing Deployment</span>
-                            <h3 class="video-title">Global Web Competition Engagement Certificate</h3>
-                            <p class="video-description">Certified tracking and development handling international design sprints. Validating architectural stability, rapid microservice deployment schedules, and structural layouts.</p>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
+                                <h3 class="video-title">DISM Performance Statement (Semester 1)</h3>
+                                <p class="video-description">Official academic ledger validating advanced distinction
+                                    scoring profiles throughout software design, data frameworks, and responsive
+                                    deployment testing metrics.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger"
+                                data-img-url="/Performance-Statement-of-DISM-p-1.jpg">View Fullscreen</button>
                         </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Web-competition-participation.jpg">View Fullscreen</button>
                     </div>
-                </div>
 
-                <!-- Node 5: React & MongoDB -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Specialist</span>
+                    <!-- Node 3: DISM Transcript 2 -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger"
+                            data-img-url="/Performance-Statement-of-DISM-p-2.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Verified Grade</span>
+                            </div>
+                            <img src="/Performance-Statement-of-DISM-p-2.jpg" alt="Transcript P2 Thumbnail">
                         </div>
-                        <img src="/Reat-Mongo-DB-Seminar.jpg" alt="React & MongoDB Seminar Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">Technical Specialist Seminar • Specialized Ecosystem</span>
-                            <h3 class="video-title">React & MongoDB Stack Integration</h3>
-                            <p class="video-description">Documenting modern asynchronous full-stack development, distributed query architectures, NoSQL horizontal structural sharding, and real-time interface engine configurations.</p>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
+                                <h3 class="video-title">DISM Performance Statement (Semester 2)</h3>
+                                <p class="video-description">Official verification documentation ledger metrics
+                                    highlighting programming frameworks, dynamic database manipulation structures, and
+                                    distributed version control systems.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger"
+                                data-img-url="/Performance-Statement-of-DISM-p-2.jpg">View Fullscreen</button>
                         </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">View Fullscreen</button>
                     </div>
-                </div>
 
-                <!-- Node 6: Research Capability -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Research-capability.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Appreciation</span>
+                    <!-- Node 4: Techwiz 6 -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-competition-participation.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Global Tier</span>
+                            </div>
+                            <img src="/Web-competition-participation.jpg" alt="Techwiz Competition Thumbnail">
                         </div>
-                        <img src="/Research-capability.jpg" alt="Research Capability Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">Technical Capability Analytics • Advanced Processes</span>
-                            <h3 class="video-title">Writing, Tasks, & Research Performance</h3>
-                            <p class="video-description">Outstanding engineering performance verification evaluating critical systems research logic, structured documentation practices, and execution processes.</p>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">Techwiz 6 Innovation Arena • Global Standing
+                                    Deployment</span>
+                                <h3 class="video-title">Global Web Competition Engagement Certificate</h3>
+                                <p class="video-description">Certified tracking and development handling international
+                                    design sprints. Validating architectural stability, rapid microservice deployment
+                                    schedules, and structural layouts.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger"
+                                data-img-url="/Web-competition-participation.jpg">View Fullscreen</button>
                         </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Research-capability.jpg">View Fullscreen</button>
                     </div>
-                </div>
 
-                <!-- Node 7: Digital Media Marketing -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">Grade A</span>
+                    <!-- Node 5: React & MongoDB -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Specialist</span>
+                            </div>
+                            <img src="/Reat-Mongo-DB-Seminar.jpg" alt="React & MongoDB Seminar Thumbnail">
                         </div>
-                        <img src="/Digital-Media-Marketing.png" alt="Marketing Diploma Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">Global Computer Institute • SBTE Affiliation</span>
-                            <h3 class="video-title">Digital Media Marketing & Freelancing</h3>
-                            <p class="video-description">Affiliated with Sindh Board of Technical Education. Comprehensive mastery of customer conversion matrices, data flow funnels, optimization diagnostics, and growth analytics.</p>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">Technical Specialist Seminar • Specialized
+                                    Ecosystem</span>
+                                <h3 class="video-title">React & MongoDB Stack Integration</h3>
+                                <p class="video-description">Documenting modern asynchronous full-stack development,
+                                    distributed query architectures, NoSQL horizontal structural sharding, and real-time
+                                    interface engine configurations.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">View
+                                Fullscreen</button>
                         </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">View Fullscreen</button>
                     </div>
-                </div>
 
-                <!-- Node 8: CIT -->
-                <div class="video-card">
-                    <div class="thumbnail-mask open-cert-trigger" data-img-url="/CIT.jpg">
-                        <div class="video-badge">
-                            <span class="gold-star">★</span>
-                            <span class="badge-text">93% Secure</span>
+                    <!-- Node 6: Research Capability -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Research-capability.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Appreciation</span>
+                            </div>
+                            <img src="/Research-capability.jpg" alt="Research Capability Thumbnail">
                         </div>
-                        <img src="/CIT.jpg" alt="CIT Certificate Thumbnail">
-                    </div>
-                    <div class="video-meta-body">
-                        <div>
-                            <span class="video-channel-tag">Social Development Org • Trade Testing Board</span>
-                            <h3 class="video-title">Certificate in Information Technology (CIT)</h3>
-                            <p class="video-description">Secured A1+ honors verification tracking advanced algorithms, structural office automation scripting, optimization tools, and local networking deployments.</p>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">Technical Capability Analytics • Advanced
+                                    Processes</span>
+                                <h3 class="video-title">Writing, Tasks, & Research Performance</h3>
+                                <p class="video-description">Outstanding engineering performance verification evaluating
+                                    critical systems research logic, structured documentation practices, and execution
+                                    processes.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger" data-img-url="/Research-capability.jpg">View
+                                Fullscreen</button>
                         </div>
-                        <button class="card-btn open-cert-trigger" data-img-url="/CIT.jpg">View Fullscreen</button>
                     </div>
-                </div>
 
+                    <!-- Node 7: Digital Media Marketing -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">Grade A</span>
+                            </div>
+                            <img src="/Digital-Media-Marketing.png" alt="Marketing Diploma Thumbnail">
+                        </div>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">Global Computer Institute • SBTE Affiliation</span>
+                                <h3 class="video-title">Digital Media Marketing & Freelancing</h3>
+                                <p class="video-description">Affiliated with Sindh Board of Technical Education.
+                                    Comprehensive mastery of customer conversion matrices, data flow funnels,
+                                    optimization diagnostics, and growth analytics.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">View
+                                Fullscreen</button>
+                        </div>
+                    </div>
+
+                    <!-- Node 8: CIT -->
+                    <div class="video-card">
+                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/CIT.jpg">
+                            <div class="video-badge">
+                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge-text">93% Secure</span>
+                            </div>
+                            <img src="/CIT.jpg" alt="CIT Certificate Thumbnail">
+                        </div>
+                        <div class="video-meta-body">
+                            <div>
+                                <span class="video-channel-tag">Social Development Org • Trade Testing Board</span>
+                                <h3 class="video-title">Certificate in Information Technology (CIT)</h3>
+                                <p class="video-description">Secured A1+ honors verification tracking advanced
+                                    algorithms, structural office automation scripting, optimization tools, and local
+                                    networking deployments.</p>
+                            </div>
+                            <button class="card-btn open-cert-trigger" data-img-url="/CIT.jpg">View Fullscreen</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -857,12 +1162,16 @@
         <section id="contact" class="section contact-content">
             <div class="reveal">
                 <h2>Get in touch</h2>
-                <p>Looking to collaborate on mid-level Laravel engineering roles or performance infrastructure consulting.</p>
-                
+                <p>Looking to collaborate on mid-level Laravel engineering roles or performance infrastructure
+                    consulting.</p>
+
                 <div class="social-row">
-                    <a href="mailto:your.email@example.com" class="social-link">Email</a>
-                    <a href="https://github.com/meetmansoorali" target="_blank" class="social-link">GitHub</a>
-                    <a href="https://www.linkedin.com/in/meetmansoorali/?skipRedirect=true" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="https://github.com/meetmansoorali" target="_blank" class="social-button">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/meetmansoorali/" target="_blank" class="social-button">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -870,14 +1179,13 @@
         <!-- Footer -->
         <footer>
             <span>&copy; 2026 Mansoor Ali. All rights reserved.</span>
-            <span>Built Minimal // Pure Performance</span>
         </footer>
     </div>
 
     <!-- UI Interaction Script Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // --- SCROLL REVEAL MECHANIC ---
             const revealElements = document.querySelectorAll('.reveal');
             const revealOnScroll = () => {
@@ -895,7 +1203,7 @@
             // --- PROFESSIONAL NAVBAR HIGHLIGHT LOGIC ---
             const navItems = document.querySelectorAll('.nav-item');
             const sections = document.querySelectorAll('section');
-            
+
             const activeNavOnScroll = () => {
                 let scrollPosition = window.scrollY + 150;
                 sections.forEach(section => {
@@ -908,7 +1216,7 @@
                         });
                     }
                 });
-                if(window.scrollY < 200) {
+                if (window.scrollY < 200) {
                     navItems.forEach(item => item.classList.remove('active'));
                 }
             };
@@ -925,7 +1233,7 @@
                     e.preventDefault();
                     e.stopPropagation();
                     const imgSrc = button.getAttribute('data-img-url');
-                    if(imgSrc) {
+                    if (imgSrc) {
                         modalImg.src = imgSrc;
                         modal.classList.add('active');
                     }
@@ -938,7 +1246,7 @@
             };
 
             closeBtn.addEventListener('click', clearAndCloseModal);
-            modal.addEventListener('click', (e) => { if(e.target === modal) clearAndCloseModal(); });
+            modal.addEventListener('click', (e) => { if (e.target === modal) clearAndCloseModal(); });
 
             // --- BUSINESS POST-MORTEM TOGGLE (CARRYOWN) ---
             const insightBlock = document.getElementById('carryownInsight');
@@ -953,7 +1261,53 @@
                     toggleBtn.innerText = 'View Details';
                 }
             });
+
+            // --- MATURE AUTOMATED 2-CARD INTERVAL SLIDER ---
+            const track = document.getElementById('carouselTrack');
+            const viewport = document.getElementById('carouselViewport');
+            const cards = Array.from(track.children);
+
+            let currentIndex = 0;
+            let isPaused = false;
+            const slideIntervalTime = 4000;
+
+            const getCardsPerView = () => {
+                return window.innerWidth <= 768 ? 1 : 2;
+            };
+
+            const updateSliderPosition = () => {
+                const cardsPerView = getCardsPerView();
+                const totalNodes = cards.length;
+
+                if (currentIndex > totalNodes - cardsPerView) {
+                    currentIndex = 0;
+                }
+
+                if (cards[currentIndex]) {
+                    const widthFactor = cards[currentIndex].getBoundingClientRect().width;
+                    const offset = currentIndex * (widthFactor + 30);
+                    track.style.transform = `translateX(-${offset}px)`;
+                }
+            };
+
+            const autoAdvanceSlider = () => {
+                if (!isPaused) {
+                    const cardsPerView = getCardsPerView();
+                    currentIndex += cardsPerView;
+                    updateSliderPosition();
+                }
+            };
+
+            let sliderTimer = setInterval(autoAdvanceSlider, slideIntervalTime);
+
+            viewport.addEventListener('mouseenter', () => { isPaused = true; });
+            viewport.addEventListener('mouseleave', () => { isPaused = false; });
+
+            window.addEventListener('resize', () => {
+                updateSliderPosition();
+            });
         });
     </script>
 </body>
+
 </html>
