@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mansoor Ali | Laravel & Systems Engineer</title>
 
-    <!-- Premium Minimalist Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome Kit CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,17 +19,15 @@
     <style>
         :root {
             --bg: #050507;
-            --card-bg: #0a0a0f;
+            --cardBg: #0a0a0f;
             --text: #f3f4f6;
-            --text-muted: #8e939e;
+            --textMuted: #8e939e;
             --accent: #ff2d20;
-            /* Laravel Accent */
             --gold: #d4af37;
-            /* Gold Certification Tone */
             --border: #14141c;
-            --font-main: 'Plus Jakarta Sans', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            --nav-height: 75px;
+            --fontMain: 'Plus Jakarta Sans', sans-serif;
+            --fontMono: 'JetBrains Mono', monospace;
+            --navHeight: 75px;
         }
 
         * {
@@ -44,13 +40,13 @@
             scroll-behavior: smooth;
             background-color: var(--bg);
             color: var(--text);
-            font-family: var(--font-main);
+            font-family: var(--fontMain);
         }
 
         body {
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            padding-top: var(--nav-height);
+            padding-top: var(--navHeight);
         }
 
         .container {
@@ -59,14 +55,13 @@
             margin: 0 auto;
         }
 
-        /* Professional Sticky Navbar */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: var(--nav-height);
-            background: rgba(5, 5, 7, 0.75);
+            height: var(--navHeight);
+            background: rgba(5, 5, 7, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
@@ -75,55 +70,62 @@
             align-items: center;
         }
 
-        .nav-container {
+        .navContainer {
             width: 90%;
             max-width: 1000px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
         }
 
         .logo {
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             font-weight: 500;
             font-size: 0.95rem;
             color: var(--text);
             letter-spacing: -0.5px;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
         }
 
         .logo span {
             color: var(--accent);
         }
 
-        .nav-right {
+        .navRight {
             display: flex;
             align-items: center;
             gap: 40px;
+            overflow: hidden;
         }
 
-        .nav-links {
+        .navLinks {
             display: flex;
             gap: 30px;
         }
 
-        .nav-links a {
-            color: var(--text-muted);
+        .navLinks a {
+            color: var(--textMuted);
             text-decoration: none;
             font-size: 0.85rem;
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             position: relative;
             padding: 6px 0;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .navLinks a:hover,
+        .navLinks a.active {
             color: var(--text);
         }
 
-        .nav-links a.active::after {
+        .navLinks a.active::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -133,7 +135,7 @@
             background: var(--accent);
         }
 
-        .nav-socials {
+        .navSocials {
             display: flex;
             align-items: center;
             gap: 18px;
@@ -141,36 +143,36 @@
             padding-left: 24px;
         }
 
-        .nav-socials a {
-            color: var(--text-muted);
+        .navSocials a {
+            color: var(--textMuted);
             transition: color 0.2s ease, transform 0.2s ease;
             display: flex;
             align-items: center;
             font-size: 1.05rem;
         }
 
-        .nav-socials a:hover {
+        .navSocials a:hover {
             color: var(--text);
             transform: translateY(-1px);
         }
 
-        /* Hero Layout */
         .hero {
-            padding: 120px 0 90px 0;
-            min-height: 65vh;
+            padding: 80px 0 60px 0;
+            min-height: calc(100vh - var(--navHeight));
             display: flex;
             align-items: center;
         }
 
-        .hero-grid {
+        .heroGrid {
             display: grid;
             grid-template-columns: 0.7fr 1.3fr;
             gap: 60px;
             align-items: center;
+            width: 100%;
         }
 
         .tagline {
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             color: var(--accent);
             font-size: 0.8rem;
             margin-bottom: 20px;
@@ -187,51 +189,50 @@
             color: var(--text);
         }
 
-        .sub-hero {
+        .subHero {
             font-size: 1.05rem;
-            color: var(--text-muted);
+            color: var(--textMuted);
             margin-bottom: 35px;
             line-height: 1.6;
         }
 
-        .hero-cta {
+        .heroCta {
             display: flex;
             align-items: center;
             gap: 25px;
             flex-wrap: wrap;
         }
 
-        .hero-cta a {
+        .heroCta a {
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             font-size: 0.85rem;
             transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
         }
 
-        .primary-link {
+        .primaryLink {
             color: var(--text);
             border-bottom: 1px solid var(--text);
             padding-bottom: 2px;
         }
 
-        .primary-link:hover {
+        .primaryLink:hover {
             color: var(--accent);
             border-color: var(--accent);
         }
 
-        .secondary-link {
-            color: var(--text-muted);
+        .secondaryLink {
+            color: var(--textMuted);
         }
 
-        .secondary-link:hover {
+        .secondaryLink:hover {
             color: var(--text);
         }
 
-        /* Premium Resume Action Button Grid Style */
-        .resume-btn {
+        .resumeBtn {
             background: transparent;
             border: 1px solid var(--text);
             color: var(--text);
@@ -239,18 +240,18 @@
             border-radius: 4px;
         }
 
-        .resume-btn:hover {
+        .resumeBtn:hover {
             background: var(--text);
             color: var(--bg);
         }
 
-        .profile-frame {
+        .profileFrame {
             width: 100%;
             max-width: 300px;
             justify-self: end;
         }
 
-        .profile-img {
+        .profileImg {
             width: 100%;
             height: auto;
             border-radius: 6px;
@@ -260,49 +261,90 @@
             transition: all 0.4s ease;
         }
 
-        .profile-frame:hover .profile-img {
+        .profileFrame:hover .profileImg {
             filter: grayscale(0%);
             opacity: 1;
             border-color: rgba(255, 45, 32, 0.3);
         }
 
-        /* Clean Sections */
         .section {
-            padding: 90px 0;
+            padding: 80px 0;
             border-top: 1px solid var(--border);
         }
 
-        .section-title {
-            font-family: var(--font-mono);
+        .sectionTitle {
+            font-family: var(--fontMono);
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--textMuted);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 50px;
         }
 
-        /* Timeline Elements */
         .timeline {
             display: flex;
             flex-direction: column;
-            gap: 45px;
+            gap: 50px;
+            position: relative;
         }
 
-        .timeline-item {
+        .timelineItem {
             display: grid;
             grid-template-columns: 1fr 2.5fr;
             gap: 30px;
+            position: relative;
+        }
+
+        .dateContainer {
+            position: relative;
+            padding-top: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .date {
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             font-size: 0.85rem;
-            color: var(--text-muted);
-            padding-top: 4px;
-            padding-bottom: 10px;
+            color: var(--textMuted);
+            display: inline-block;
         }
 
-        .time-content h3 {
+        .timelineLogo {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--cardBg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .timelineLogo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timelineLogo i {
+            font-size: 1.1rem;
+            color: var(--textMuted);
+        }
+
+        .timelineBrandWrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .timeContent {
+            flex-grow: 1;
+        }
+
+        .timeContent h3 {
             font-size: 1.3rem;
             font-weight: 500;
             margin-bottom: 6px;
@@ -310,19 +352,18 @@
         }
 
         .location {
-            color: var(--text-muted);
+            color: var(--textMuted);
             font-size: 0.85rem;
             margin-bottom: 15px;
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
         }
 
-        .time-content p {
-            color: var(--text-muted);
+        .timeContent p {
+            color: var(--textMuted);
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* Engineering Project Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -330,7 +371,7 @@
         }
 
         .card {
-            background: var(--card-bg);
+            background: var(--cardBg);
             border: 1px solid var(--border);
             padding: 35px;
             border-radius: 8px;
@@ -351,8 +392,8 @@
             margin-bottom: 4px;
         }
 
-        .card-subtitle {
-            font-family: var(--font-mono);
+        .cardSubtitle {
+            font-family: var(--fontMono);
             font-size: 0.8rem;
             color: var(--accent);
             text-decoration: none;
@@ -362,42 +403,44 @@
             margin-bottom: 18px;
         }
 
-        .brand-header-row {
+        .brandHeaderRow {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
+            gap: 15px;
         }
 
-        .brand-logo-img {
-            height: 22px;
+        .brandLogoImg {
+            height: 32px;
             width: auto;
             border-radius: 2px;
             opacity: 0.85;
+            object-fit: contain;
         }
 
         .card p {
-            color: var(--text-muted);
+            color: var(--textMuted);
             line-height: 1.6;
             font-size: 0.92rem;
             margin-bottom: 15px;
         }
 
-        .business-insight {
+        .businessInsight {
             border-top: 1px dashed var(--border);
             padding-top: 15px;
             margin-top: 15px;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--textMuted);
             line-height: 1.5;
         }
 
-        .card-btn {
+        .cardBtn {
             align-self: flex-start;
             background: transparent;
             border: none;
             color: var(--text);
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             font-size: 0.8rem;
             border-bottom: 1px solid var(--text);
             padding-bottom: 2px;
@@ -409,28 +452,27 @@
             transition: color 0.2s, border-color 0.2s;
         }
 
-        .card-btn:hover {
+        .cardBtn:hover {
             color: var(--accent);
             border-color: var(--accent);
         }
 
-        /* --- AUTOMATED LANDSCAPE VIDEO CAROUSEL --- */
-        .carousel-viewport {
+        .carouselViewport {
             width: 100%;
             overflow: hidden;
             position: relative;
             padding: 10px 0;
         }
 
-        .carousel-track {
+        .carouselTrack {
             display: flex;
             gap: 30px;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform;
         }
 
-        .video-card {
-            background: var(--card-bg);
+        .videoCard {
+            background: var(--cardBg);
             border: 1px solid var(--border);
             border-radius: 8px;
             overflow: hidden;
@@ -440,12 +482,11 @@
             flex: 0 0 calc((100% - 30px) / 2);
         }
 
-        .video-card:hover {
+        .videoCard:hover {
             border-color: #232335;
         }
 
-        /* Widescreen 16:9 Thumbnail Mask */
-        .thumbnail-mask {
+        .thumbnailMask {
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #040406;
@@ -453,7 +494,7 @@
             overflow: hidden;
         }
 
-        .thumbnail-mask img {
+        .thumbnailMask img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -461,12 +502,11 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .video-card:hover .thumbnail-mask img {
+        .videoCard:hover .thumbnailMask img {
             transform: scale(1.02);
         }
 
-        /* Minimalist Hover Overlay Play Effect */
-        .thumbnail-mask::after {
+        .thumbnailMask::after {
             content: 'EXPAND CREDENTIAL';
             position: absolute;
             top: 0;
@@ -477,7 +517,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             font-size: 0.75rem;
             color: var(--text);
             letter-spacing: 1px;
@@ -486,12 +526,11 @@
             pointer-events: none;
         }
 
-        .video-card:hover .thumbnail-mask::after {
+        .videoCard:hover .thumbnailMask::after {
             opacity: 1;
         }
 
-        /* Upper Corner Badge Overlay */
-        .video-badge {
+        .videoBadge {
             position: absolute;
             top: 12px;
             right: 12px;
@@ -507,22 +546,21 @@
             z-index: 10;
         }
 
-        .gold-star {
+        .goldStar {
             color: var(--gold);
             font-size: 0.8rem;
             line-height: 1;
         }
 
-        .badge-text {
-            font-family: var(--font-mono);
+        .badgeText {
+            font-family: var(--fontMono);
             font-size: 0.65rem;
             color: var(--gold);
             text-transform: uppercase;
             font-weight: 500;
         }
 
-        /* Metadata & Context Shell */
-        .video-meta-body {
+        .videoMetaBody {
             padding: 25px;
             display: flex;
             flex-direction: column;
@@ -530,15 +568,15 @@
             flex-grow: 1;
         }
 
-        .video-channel-tag {
-            font-family: var(--font-mono);
+        .videoChannelTag {
+            font-family: var(--fontMono);
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: var(--textMuted);
             margin-bottom: 6px;
             display: block;
         }
 
-        .video-title {
+        .videoTitle {
             font-size: 1.15rem;
             font-weight: 500;
             line-height: 1.4;
@@ -547,15 +585,14 @@
             letter-spacing: -0.2px;
         }
 
-        .video-description {
-            color: var(--text-muted);
+        .videoDescription {
+            color: var(--textMuted);
             font-size: 0.88rem;
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
-        /* Immersive Lightbox Modal */
-        .modal-overlay {
+        .modalOverlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -570,22 +607,23 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.25s ease;
+            padding: 20px;
         }
 
-        .modal-overlay.active {
+        .modalOverlay.active {
             opacity: 1;
             pointer-events: auto;
         }
 
-        .modal-wrapper {
+        .modalWrapper {
             position: relative;
-            max-width: 90%;
-            max-height: 85%;
+            max-width: 100%;
+            max-height: 100%;
             display: flex;
             justify-content: center;
         }
 
-        .modal-wrapper img {
+        .modalWrapper img {
             max-width: 100%;
             max-height: 80vh;
             border-radius: 4px;
@@ -593,66 +631,85 @@
             border: 1px solid var(--border);
         }
 
-        .modal-close {
+        .modalClose {
             position: absolute;
-            top: -35px;
+            top: -40px;
             right: 0;
             background: transparent;
             border: none;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
+            color: var(--textMuted);
+            font-family: var(--fontMono);
+            font-size: 0.85rem;
             cursor: pointer;
+            padding: 5px;
         }
 
-        .modal-close:hover {
+        .modalClose:hover {
             color: var(--text);
         }
 
-        /* Contact & Footer Configuration */
-        .contact-content {
-            padding: 80px 0;
-            text-align: left;
+        .contactContent {
+            text-align: center;
+            padding: 60px 0;
         }
 
-        .contact-content h2 {
-            font-size: 2rem;
+        .emailLink {
+            display: inline-block;
+            color: var(--text);
+            font-family: var(--fontMono);
+            text-decoration: none;
+            font-size: 2.2rem;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin: 25px 0 40px 0;
+            letter-spacing: -1px;
+            transition: opacity 0.2s ease;
+            word-break: break-word;
         }
 
-        .contact-content p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 35px;
-            max-width: 520px;
-            line-height: 1.6;
+        .emailLink:hover {
+            opacity: 0.8;
+            color: var(--accent);
         }
 
-        .social-row {
+        .socialRow {
             display: flex;
-            gap: 24px;
+            justify-content: center;
+            padding-top: 10px;
+            gap: 25px;
             flex-wrap: wrap;
         }
 
-        .social-button {
+        .socialButton {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: var(--card-bg);
+            gap: 12px;
+            background: var(--cardBg);
             border: 1px solid var(--border);
             padding: 12px 24px;
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text);
             text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            transition: border-color 0.2s, background-color 0.2s;
+            font-family: var(--fontMono);
+            font-size: 0.9rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
-        .social-button:hover {
-            border-color: #232335;
-            background: #111118;
+        .socialButton:hover {
+            border-color: var(--textMuted);
+            transform: translateY(-2px);
+        }
+
+        .socialButton i {
+            font-size: 1.2rem;
+        }
+
+        .socialCounter {
+            background: var(--border);
+            color: var(--textMuted);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
         }
 
         footer {
@@ -660,9 +717,11 @@
             border-top: 1px solid var(--border);
             color: #404050;
             font-size: 0.8rem;
-            font-family: var(--font-mono);
+            font-family: var(--fontMono);
             display: flex;
             justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .reveal {
@@ -676,128 +735,165 @@
             transform: translateY(0);
         }
 
-        /* Responsive Optimization rules */
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid {
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 880px) {
-            .nav-socials {
+            .navSocials {
                 display: none;
             }
         }
 
+        /* Responsive Mobile Layout Modification - Stays true to standard without Hamburgers */
         @media (max-width: 768px) {
-            .video-card {
+            body {
+                padding-top: calc(var(--navHeight) - 10px);
+            }
+
+            nav {
+                height: calc(var(--navHeight) - 10px);
+            }
+
+            .navContainer {
+                gap: 15px;
+            }
+
+            /* Scrollable No-hamburger link array layout logic */
+            .navRight {
+                width: auto;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 4px;
+                margin-bottom: -4px;
+            }
+
+            .navRight::-webkit-scrollbar {
+                display: none;
+                /* Keeps navigation container layout clean on mobile devices */
+            }
+
+            .navLinks {
+                gap: 20px;
+            }
+
+            .navLinks a {
+                font-size: 0.8rem;
+            }
+
+            .videoCard {
                 flex: 0 0 100%;
             }
 
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .hero {
+                padding: 40px 0;
             }
 
-            .profile-frame {
+            .heroGrid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: left;
+            }
+
+            .profileFrame {
                 justify-self: start;
-                max-width: 180px;
+                max-width: 150px;
             }
 
             .hero h1 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
 
-            .timeline-item {
+            .section {
+                padding: 60px 0;
+            }
+
+            .timelineItem {
                 grid-template-columns: 1fr;
-                gap: 10px;
+                gap: 15px;
+            }
+
+            .dateContainer {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .timelineLogo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .timelineBrandWrapper {
+                gap: 15px;
             }
 
             .grid {
                 grid-template-columns: 1fr;
             }
 
-            .nav-right {
-                gap: 0;
+            .card {
+                padding: 25px;
             }
 
-            footer {
+            .emailLink {
+                font-size: 1.6rem;
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .subHero {
+                font-size: 0.95rem;
+            }
+
+            .heroCta {
+                gap: 15px;
+            }
+
+            .heroCta a,
+            .resumeBtn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+            }
+
+            .resumeBtn {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+
+            .socialRow {
                 flex-direction: column;
-                gap: 12px;
-            }
-        }
-
-        /* Structural Timeline Layout & Vertical Connectors */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            position: relative;
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 1fr 2.5fr;
-            gap: 30px;
-            position: relative;
-        }
-
-        .date-container {
-            position: relative;
-            padding-top: 4px;
-        }
-
-        .date {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: inline-block;
-        }
-
-        /* Company Logos in Timeline */
-        .timeline-brand-wrapper {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .time-content {
-            flex-grow: 1;
-        }
-
-        .timeline-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .timeline-logo img {
-            width: 100%;
-            height: 100%;
-
-        }
-
-        .timeline-logo i {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        /* Responsive Overrides */
-        @media (max-width: 768px) {
-            .timeline-item {
-                grid-template-columns: 1fr;
-                gap: 15px;
+                align-items: stretch;
             }
 
-            .timeline-brand-wrapper {
-                flex-direction: column-reverse;
-                gap: 15px;
+            .socialButton {
+                justify-content: space-between;
             }
 
-            /* Hide the graphic branch on mobile screens to maintain clean spacing */
-            .timeline-branch {
-                display: none;
+            .emailLink {
+                font-size: 1.3rem;
+            }
+
+            .videoMetaBody {
+                padding: 15px;
+            }
+
+            .videoTitle {
+                font-size: 1.05rem;
             }
         }
     </style>
@@ -805,35 +901,36 @@
 
 <body>
 
-    <!-- Lightbox Modal for Dynamic Fullscreen Rendering -->
-    <div class="modal-overlay" id="portfolioModal">
-        <div class="modal-wrapper">
-            <button class="modal-close" id="closeModal">close [x]</button>
+    <div class="modalOverlay" id="portfolioModal">
+        <div class="modalWrapper">
+            <button class="modalClose" id="closeModal">close [x]</button>
             <img src="" id="modalTargetImg" alt="Credential Premium Viewport Asset">
         </div>
     </div>
 
-    <!-- Sticky Modern Navbar -->
     <nav>
-        <div class="nav-container">
+        <div class="navContainer">
             <a href="#" class="logo">
-                 <img src="https://i.ibb.co/C3yBJr44/686273210-18046292702758194-1277828958504920591-n-1.jpg"
-                    class="brand-logo-img">
-                    
-                Mansoor<span>Ali</span></a>
-            <div class="nav-right">
-                <div class="nav-links" id="navbarNav">
-                    <a href="#experience" class="nav-item">Experience</a>
-                    <a href="#architecture" class="nav-item">Systems</a>
-                    <a href="#credentials" class="nav-item">Credentials</a>
-                    <a href="#contact" class="nav-item">Contact</a>
+                <img src="https://i.ibb.co/C3yBJr44/686273210-18046292702758194-1277828958504920591-n-1.jpg"
+                    class="brandLogoImg" alt="Logo image">
+                <span>Mansoor
+                    <br>
+                    Ali
+                </span>
+            </a>
+            <div class="navRight">
+                <div class="navLinks" id="navbarNav">
+                    <a href="#experience" class="navItem">Experience</a>
+                    <a href="#architecture" class="navItem">Systems</a>
+                    <a href="#credentials" class="navItem">Credentials</a>
+                    <a href="#contact" class="navItem">Contact</a>
                 </div>
-                <div class="nav-socials">
-                    <a href="https://github.com/meetmansoorali" style="text-decoration: none;" target="_blank">
+                <div class="navSocials">
+                    <a href="https://github.com/meetmansoorali" target="_blank" aria-label="GitHub profile">
                         <i class="fa-brands fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/meetmansoorali/?skipRedirect=true" target="_blank"
-                        style="text-decoration: none;">
+                        aria-label="LinkedIn profile">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                 </div>
@@ -843,314 +940,287 @@
 
     <div class="container">
 
-        <!-- Hero Introduction Section -->
         <header class="hero">
-            <div class="hero-grid">
-                <div class="profile-frame">
+            <div class="heroGrid">
+                <div class="profileFrame">
                     <img src="https://i.ibb.co/C3yBJr44/686273210-18046292702758194-1277828958504920591-n-1.jpg"
-                        alt="Mansoor Ali Profile" class="profile-img">
+                        alt="Mansoor Ali Profile" class="profileImg">
                 </div>
                 <div>
                     <p class="tagline">Laravel & Systems Developer</p>
                     <h1>Developing robust Web Apps, business solutions, and E-COM Webs.</h1>
-                    <p class="sub-hero">2.5+ years of production experience designing performance-tuned web ecosystems,
-                        handling backend API architectures, and maintaining clean codebase lifecycles.</p>
-                    <div class="hero-cta">
-                        <a href="#experience" class="primary-link">Experience</a>
-                        <a href="#architecture" class="secondary-link">Milestones</a>
-                        <!-- New Resume Action Link Element -->
-                        <a href="/path-to-your-resume.pdf" download class="resume-btn">
+                    <p class="subHero">2+ years of experience designing high-performance web applications, developing
+                        robust solutions.</p>
+                    <div class="heroCta">
+                        <a href="#experience" class="primaryLink">Experience</a>
+                        <a href="#architecture" class="secondaryLink">Milestones</a>
+                        <!-- <a href="" download class="resumeBtn">
                             <i class="fa-solid fa-arrow-down-to-bracket"></i> Download CV
-                        </a>
+                        </a> -->
                     </div>
                 </div>
-
             </div>
         </header>
 
-        <!-- Professional Experience Timeline -->
         <section id="experience" class="section">
-            <h2 class="section-title reveal">Track Record</h2>
+            <h2 class="sectionTitle reveal">Track Record</h2>
             <div class="timeline">
 
-                <!-- Freelance Work -->
-                <div class="timeline-item reveal">
-                    <div class="date-container">
+                <div class="timelineItem reveal">
+                    <div class="dateContainer">
                         <span class="date">2025 — PRESENT</span>
-                        <div class="timeline-logo" title="Freelance Engineering Contracts">
-                            <i class="fa-solid fa-briefcase"></i>
+                        <div class="timelineLogo" title="Freelance Engineering Contracts">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQHzfIYiZUC8Ug/company-logo_200_200/company-logo_200_200/0/1732699755544/forbes_logo?e=2147483647&v=beta&t=cExfFEV2Mm31I4hy-rbFM8Q35jM9RMc_03FAPeIb6Z4" >
                         </div>
                     </div>
-                    <div class="timeline-brand-wrapper">
-                        <div class="time-content">
-                            <h3>System Programmer / Freelance Engineer</h3>
-                            <p class="location">Remote Operations</p>
-                            <p>Architecting production-ready APIs and back-end integration mechanics utilizing
-                                structural PHP layouts and the Laravel ecosystem. Normalizing relational databases and
-                                tuning complex system interactions for streamlined processing pipelines.</p>
+                    <div class="timelineBrandWrapper">
+                        <div class="timeContent">
+                            <h3>System Programmer</h3>
+                            <p class="location">Freelance Engineer</p>
+                            <p>Creating tailored web applications, e-commerce platforms, and custom websites designed to solve specific business needs. Normalizing relational databases and optimizing backend workflows for smooth performance.</p>
                         </div>
-                        <!-- Premium Professional Hub Placeholder -->
-
                     </div>
                 </div>
 
-                <!-- Lead PHP Developer at Carryown -->
-                <div class="timeline-item reveal">
-                    <div class="date-container">
+                <div class="timelineItem reveal">
+                    <div class="dateContainer">
                         <span class="date">2024 — 2025</span>
-                        <!-- Verified Brand Logo Asset -->
-                        <div class="timeline-logo">
+                        <div class="timelineLogo">
                             <img src="https://i.ibb.co/QjHxwS02/carryown-com.jpg" alt="Carryown Brand Logo">
                         </div>
                     </div>
-                    <div class="timeline-brand-wrapper">
-
-                        <div class="time-content">
-                            <h3>Lead PHP Developer</h3>
-                            <p class="location">Carryown — Premium Bag Brand</p>
-                            <p>Designed and managed the end-to-end e-commerce data structures. Oversaw integration
-                                points handling localized payment routing configurations, structural inventory logs, and
-                                critical user transactional pipelines.</p>
+                    <div class="timelineBrandWrapper">
+                        <div class="timeContent">
+                            <h3>Head of Technology - Carryown</h3>
+                            <p class="location">Carryown — Women Bag Brand Startup</p>
+                            <p>Configured an e-commerce platform back-end built to manage multidimensional product variants and strict state checkouts for a direct-to-consumer bag brand.</p>
                         </div>
-
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Architecture & Project Grid -->
         <section id="architecture" class="section">
-            <h2 class="section-title reveal">Milestones</h2>
+            <h2 class="sectionTitle reveal">Milestones</h2>
             <div class="grid">
 
                 <div class="card reveal">
                     <div>
-                        <div class="brand-header-row">
+                        <div class="brandHeaderRow">
                             <h3>Global Hackathon - Techwiz</h3>
-                            <img src="https://aptech-education.com.pk/assets/images/logo.png" class="brand-logo-img">
+                            <img src="https://aptech-education.com.pk/assets/images/logo.png" class="brandLogoImg"
+                                alt="Aptech Logo">
                         </div>
                         <p>Engineered an active web-tier script application structure under intensive global competition
                             constraints. Highlighted deep MVC structuring, system innovation paradigms, and rapid server
                             prototyping protocols with 'The Code Crew'.</p>
                     </div>
-                    <button class="card-btn open-cert-trigger" data-img-url="/Web-competition-participation.jpg">
+                    <button class="cardBtn openCertTrigger" data-img-url="https://i.ibb.co/qMQ85Lj1/Web-competition-participation.jpg">
                         View Certificate
                     </button>
                 </div>
 
-                <!-- Carryown Card with Logo Inside Header Row -->
                 <div class="card reveal">
                     <div>
-                        <div class="brand-header-row">
+                        <div class="brandHeaderRow">
                             <h3>Head of Technology - Carryown </h3>
                             <img src="https://i.ibb.co/QjHxwS02/carryown-com.jpg" alt="Carryown Brand Logo"
-                                class="brand-logo-img">
+                                class="brandLogoImg">
                         </div>
-                        <a href="https://www.carryown.com" target="_blank" class="card-subtitle">
+                        <a href="https://www.carryown.com" target="_blank" class="cardSubtitle">
                             www.carryown.com
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
                         <p>Configured an e-commerce platform back-end built to manage multidimensional product variants
                             and strict state checkouts for a direct-to-consumer bag brand.</p>
 
-                        <div class="business-insight" id="carryownInsight" style="display: none;">
+                        <div class="businessInsight" id="carryownInsight" style="display: none;">
                             <strong>Post-Mortem:</strong> Core system structures functioned perfectly. Software
                             architecture operations were sunsetted due to downstream business friction, including
                             domestic logistics fulfillment bottlenecks and consistent third-party raw product pipeline
                             challenges.
                         </div>
                     </div>
-                    <button class="card-btn" id="toggleInsightBtn">View Details</button>
+                    <button class="cardBtn" id="toggleInsightBtn">View Details</button>
                 </div>
 
             </div>
         </section>
 
-        <!-- Dynamic 2-Card Row Auto-Sliding Widescreen Slider -->
         <section id="credentials" class="section">
-            <h2 class="section-title reveal">Verified Credentials</h2>
+            <h2 class="sectionTitle reveal">Verified Credentials</h2>
 
-            <div class="carousel-viewport reveal" id="carouselViewport">
-                <div class="carousel-track" id="carouselTrack">
+            <div class="carouselViewport reveal" id="carouselViewport">
+                <div class="carouselTrack" id="carouselTrack">
 
-                    <!-- Node 1: DISM -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Distinction</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/VYj63Xrm/Web-Development-DISM.jpg">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Distinction</span>
                             </div>
-                            <img src="/Web-Development-DISM.jpg" alt="DISM Certificate Thumbnail">
+                            <img src="https://i.ibb.co/VYj63Xrm/Web-Development-DISM.jpg">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">Aptech Computer Education • Academic Diploma Core</span>
-                                <h3 class="video-title">Diploma in Information Systems Management</h3>
-                                <p class="video-description">Thorough verification in high-availability systems
+                                <span class="videoChannelTag">Aptech Computer Education • Academic Diploma Core</span>
+                                <h3 class="videoTitle">Diploma in Information Systems Management</h3>
+                                <p class="videoDescription">Thorough verification in high-availability systems
                                     architectures, distributed database logic, relational design systems, and
                                     specialized backend architecture paradigms.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger" data-img-url="/Web-Development-DISM.jpg">View
-                                Fullscreen</button>
+                          
                         </div>
                     </div>
 
-                    <!-- Node 2: DISM Transcript 1 -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger"
-                            data-img-url="/Performance-Statement-of-DISM-p-1.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Verified Grade</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/XfCqwhF7/Performance-Statement-of-DISM-p-1.jpg">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Verified Grade</span>
                             </div>
-                            <img src="/Performance-Statement-of-DISM-p-1.jpg" alt="Transcript P1 Thumbnail">
+                            <img src="https://i.ibb.co/XfCqwhF7/Performance-Statement-of-DISM-p-1.jpg">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
-                                <h3 class="video-title">DISM Performance Statement (Semester 1)</h3>
-                                <p class="video-description">Official academic ledger validating advanced distinction
+                                <span class="videoChannelTag">ACCP Prime Core • Official Transcript Ledger</span>
+                                <h3 class="videoTitle">DISM Performance Statement (Semester 1)</h3>
+                                <p class="videoDescription">Official academic ledger validating advanced distinction
                                     scoring profiles throughout software design, data frameworks, and responsive
                                     deployment testing metrics.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger"
-                                data-img-url="/Performance-Statement-of-DISM-p-1.jpg">View Fullscreen</button>
+                            
                         </div>
                     </div>
 
-                    <!-- Node 3: DISM Transcript 2 -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger"
-                            data-img-url="/Performance-Statement-of-DISM-p-2.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Verified Grade</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/RTSzDLRq/Performance-Statement-of-DISM-p-2.jpg">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Verified Grade</span>
                             </div>
-                            <img src="/Performance-Statement-of-DISM-p-2.jpg" alt="Transcript P2 Thumbnail">
+                            <img src="https://i.ibb.co/RTSzDLRq/Performance-Statement-of-DISM-p-2.jpg">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">ACCP Prime Core • Official Transcript Ledger</span>
-                                <h3 class="video-title">DISM Performance Statement (Semester 2)</h3>
-                                <p class="video-description">Official verification documentation ledger metrics
+                                <span class="videoChannelTag">ACCP Prime Core • Official Transcript Ledger</span>
+                                <h3 class="videoTitle">DISM Performance Statement (Semester 2)</h3>
+                                <p class="videoDescription">Official verification documentation ledger metrics
                                     highlighting programming frameworks, dynamic database manipulation structures, and
                                     distributed version control systems.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger"
-                                data-img-url="/Performance-Statement-of-DISM-p-2.jpg">View Fullscreen</button>
+                           
                         </div>
                     </div>
 
-                    <!-- Node 4: Techwiz 6 -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Web-competition-participation.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Global Tier</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/qMQ85Lj1/Web-competition-participation.jpg">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Global Tier</span>
                             </div>
-                            <img src="/Web-competition-participation.jpg" alt="Techwiz Competition Thumbnail">
+                            <img src="https://i.ibb.co/qMQ85Lj1/Web-competition-participation.jpg">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">Techwiz 6 Innovation Arena • Global Standing
+                                <span class="videoChannelTag">Techwiz 6 Innovation Arena • Global Standing
                                     Deployment</span>
-                                <h3 class="video-title">Global Web Competition Engagement Certificate</h3>
-                                <p class="video-description">Certified tracking and development handling international
+                                <h3 class="videoTitle">Global Web Competition Engagement Certificate</h3>
+                                <p class="videoDescription">Certified tracking and development handling international
                                     design sprints. Validating architectural stability, rapid microservice deployment
                                     schedules, and structural layouts.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger"
-                                data-img-url="/Web-competition-participation.jpg">View Fullscreen</button>
+                           
                         </div>
                     </div>
 
-                    <!-- Node 5: React & MongoDB -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Specialist</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/5yd0kwZ/Reat-Mongo-DB-Seminar.png">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Specialist</span>
                             </div>
-                            <img src="/Reat-Mongo-DB-Seminar.jpg" alt="React & MongoDB Seminar Thumbnail">
+                            <img src="https://i.ibb.co/5yd0kwZ/Reat-Mongo-DB-Seminar.png" a>
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">Technical Specialist Seminar • Specialized
+                                <span class="videoChannelTag">Technical Specialist Seminar • Specialized
                                     Ecosystem</span>
-                                <h3 class="video-title">React & MongoDB Stack Integration</h3>
-                                <p class="video-description">Documenting modern asynchronous full-stack development,
+                                <h3 class="videoTitle">React & MongoDB Stack Integration</h3>
+                                <p class="videoDescription">Documenting modern asynchronous full-stack development,
                                     distributed query architectures, NoSQL horizontal structural sharding, and real-time
                                     interface engine configurations.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger" data-img-url="/Reat-Mongo-DB-Seminar.jpg">View
-                                Fullscreen</button>
+                            
                         </div>
                     </div>
 
-                    <!-- Node 6: Research Capability -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Research-capability.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Appreciation</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/dsTRtZ68/Research-capability.png">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Appreciation</span>
                             </div>
-                            <img src="/Research-capability.jpg" alt="Research Capability Thumbnail">
+                            <img src="https://i.ibb.co/dsTRtZ68/Research-capability.png"
+                                alt="Research Capability Thumbnail">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">Technical Capability Analytics • Advanced
-                                    Processes</span>
-                                <h3 class="video-title">Writing, Tasks, & Research Performance</h3>
-                                <p class="video-description">Outstanding engineering performance verification evaluating
+                                <span class="videoChannelTag">Technical Capability Analytics • Advanced Processes</span>
+                                <h3 class="videoTitle">Writing, Tasks, & Research Performance</h3>
+                                <p class="videoDescription">Outstanding engineering performance verification evaluating
                                     critical systems research logic, structured documentation practices, and execution
                                     processes.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger" data-img-url="/Research-capability.jpg">View
-                                Fullscreen</button>
+                           
                         </div>
                     </div>
 
-                    <!-- Node 7: Digital Media Marketing -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">Grade A</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger"
+                            data-img-url="https://i.ibb.co/Jwwkbm8q/Digital-Media-Marketing.png">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">Grade A</span>
                             </div>
-                            <img src="/Digital-Media-Marketing.png" alt="Marketing Diploma Thumbnail">
+                            <img src="https://i.ibb.co/Jwwkbm8q/Digital-Media-Marketing.png">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">Global Computer Institute • SBTE Affiliation</span>
-                                <h3 class="video-title">Digital Media Marketing & Freelancing</h3>
-                                <p class="video-description">Affiliated with Sindh Board of Technical Education.
+                                <span class="videoChannelTag">Global Computer Institute • SBTE Affiliation</span>
+                                <h3 class="videoTitle">Digital Media Marketing & Freelancing</h3>
+                                <p class="videoDescription">Affiliated with Sindh Board of Technical Education.
                                     Comprehensive mastery of customer conversion matrices, data flow funnels,
                                     optimization diagnostics, and growth analytics.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger" data-img-url="/Digital-Media-Marketing.png">View
-                                Fullscreen</button>
+                          
                         </div>
                     </div>
 
-                    <!-- Node 8: CIT -->
-                    <div class="video-card">
-                        <div class="thumbnail-mask open-cert-trigger" data-img-url="/CIT.jpg">
-                            <div class="video-badge">
-                                <span class="gold-star"><i class="fa-solid fa-star"></i></span>
-                                <span class="badge-text">93% Secure</span>
+                    <div class="videoCard">
+                        <div class="thumbnailMask openCertTrigger" data-img-url="https://i.ibb.co/MkyQqBs9/CIT.png">
+                            <div class="videoBadge">
+                                <span class="goldStar"><i class="fa-solid fa-star"></i></span>
+                                <span class="badgeText">93% Secure</span>
                             </div>
-                            <img src="/CIT.jpg" alt="CIT Certificate Thumbnail">
+                            <img src="https://i.ibb.co/MkyQqBs9/CIT.png">
                         </div>
-                        <div class="video-meta-body">
+                        <div class="videoMetaBody">
                             <div>
-                                <span class="video-channel-tag">Social Development Org • Trade Testing Board</span>
-                                <h3 class="video-title">Certificate in Information Technology (CIT)</h3>
-                                <p class="video-description">Secured A1+ honors verification tracking advanced
+                                <span class="videoChannelTag">Social Development Org • Trade Testing Board</span>
+                                <h3 class="videoTitle">Certificate in Information Technology (CIT)</h3>
+                                <p class="videoDescription">Secured A1+ honors verification tracking advanced
                                     algorithms, structural office automation scripting, optimization tools, and local
                                     networking deployments.</p>
                             </div>
-                            <button class="card-btn open-cert-trigger" data-img-url="/CIT.jpg">View Fullscreen</button>
+                        
                         </div>
                     </div>
 
@@ -1158,35 +1228,38 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section contact-content">
+        <section id="contact" class="section contactContent">
             <div class="reveal">
                 <h2>Get in touch</h2>
-                <p>Looking to collaborate on mid-level Laravel engineering roles or performance infrastructure
-                    consulting.</p>
+                <p style="padding-top:2%">Looking to collaborate on mid-level Laravel engineering roles or performance
+                    infrastructure consulting.</p>
 
-                <div class="social-row">
-                    <a href="https://github.com/meetmansoorali" target="_blank" class="social-button">
+                <a href="mailto:hey.mansoorali@gmail.com" class="emailLink">hey.mansoorali@gmail.com</a>
+
+                <div class="socialRow">
+                    <a href="https://github.com/meetmansoorali" target="_blank" class="socialButton">
                         <i class="fa-brands fa-github"></i>
+                        <span>GitHub</span>
+                        <span class="socialCounter" id="github-followers">50+ Stars</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/meetmansoorali/" target="_blank" class="social-button">
+
+                    <a href="https://www.linkedin.com/in/meetmansoorali/" target="_blank" class="socialButton">
                         <i class="fa-brands fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                        <span class="socialCounter">1k+ Followers</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer>
             <span>&copy; 2026 Mansoor Ali. All rights reserved.</span>
         </footer>
     </div>
 
-    <!-- UI Interaction Script Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- SCROLL REVEAL MECHANIC ---
             const revealElements = document.querySelectorAll('.reveal');
             const revealOnScroll = () => {
                 for (let i = 0; i < revealElements.length; i++) {
@@ -1200,8 +1273,7 @@
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
 
-            // --- PROFESSIONAL NAVBAR HIGHLIGHT LOGIC ---
-            const navItems = document.querySelectorAll('.nav-item');
+            const navItems = document.querySelectorAll('.navItem');
             const sections = document.querySelectorAll('section');
 
             const activeNavOnScroll = () => {
@@ -1222,11 +1294,10 @@
             };
             window.addEventListener('scroll', activeNavOnScroll);
 
-            // --- UNIFIED LIGHTBOX DISPLAY MECHANIC ---
             const modal = document.getElementById('portfolioModal');
             const modalImg = document.getElementById('modalTargetImg');
             const closeBtn = document.getElementById('closeModal');
-            const certButtons = document.querySelectorAll('.open-cert-trigger');
+            const certButtons = document.querySelectorAll('.openCertTrigger');
 
             certButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -1248,7 +1319,6 @@
             closeBtn.addEventListener('click', clearAndCloseModal);
             modal.addEventListener('click', (e) => { if (e.target === modal) clearAndCloseModal(); });
 
-            // --- BUSINESS POST-MORTEM TOGGLE (CARRYOWN) ---
             const insightBlock = document.getElementById('carryownInsight');
             const toggleBtn = document.getElementById('toggleInsightBtn');
 
@@ -1262,7 +1332,6 @@
                 }
             });
 
-            // --- MATURE AUTOMATED 2-CARD INTERVAL SLIDER ---
             const track = document.getElementById('carouselTrack');
             const viewport = document.getElementById('carouselViewport');
             const cards = Array.from(track.children);
