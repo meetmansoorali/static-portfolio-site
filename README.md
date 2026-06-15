@@ -3,6 +3,10 @@
 A high-performance, responsive single-page web application engineered to professionally showcase my experience, technical milestones, and verified credentials as a Web & Systems Developer. 
 
 Built with a modern minimal terminal-inspired interface theme, this codebase features fluid layouts, bespoke client-side animations, image modals, and an automated carousel layout designed completely from scratch using native web technologies—zero heavy component frameworks or bloated third-party dependencies required.
+## 🔗 Live Deployment
+
+For a live, interactive preview of the portfolio, visit:
+👉 **[mansooraliportfolio.netlify.app](https://mansooraliportfolio.netlify.app)**
 
 ## 🚀 Live Preview & Core Highlights
 
